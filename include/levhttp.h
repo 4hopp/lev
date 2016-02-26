@@ -49,30 +49,30 @@ public:
 
     // uri
 
-    inline const char* uriStr()
+    inline const char* uriStr() const
     {
         return evhttp_request_get_uri(mReq);
     }
-    inline EvHttpUri uri()
+    inline const EvHttpUri uri() const
     {
         EvHttpUri u(evhttp_request_get_evhttp_uri(mReq));
         return u;
     }
 
-    inline const char* host()
+    inline const char* host() const
     {
         return evhttp_request_get_host(mReq);
     }
-    inline enum evhttp_cmd_type cmd()
+    inline enum evhttp_cmd_type cmd() const
     {
         return evhttp_request_get_command(mReq);
     }
-    inline int responseCode()
+    inline int responseCode() const
     {
         return evhttp_request_get_response_code(mReq);
     }
 
-    inline struct evkeyvalq* inputHdrs()
+    inline const struct evkeyvalq* inputHdrs() const
     {
         return evhttp_request_get_input_headers(mReq);
     }
@@ -81,7 +81,7 @@ public:
         return evhttp_request_get_output_headers(mReq);
     }
 
-    inline EvBuffer input()
+    inline const EvBuffer input() const
     {
         return EvBuffer(evhttp_request_get_input_buffer(mReq));
     }
